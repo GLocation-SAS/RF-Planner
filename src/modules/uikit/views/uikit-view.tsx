@@ -135,7 +135,7 @@ export function UIKitView() {
               {/* Hero section */}
               <section className="text-center p-8 rounded-xl border border-border shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <h2 className="text-h1 font-heading font-bold text-primary mb-2">
-                  RF Planner UI Kit
+                  RF Planner - UI Kit
                 </h2>
                 <p className="text-muted-foreground">
                   Explora los componentes   del sistema de diseño.
