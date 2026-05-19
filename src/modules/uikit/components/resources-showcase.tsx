@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn, getAssetPath } from "@/lib/utils";
 
 interface CoreAsset {
   id: string;
@@ -111,7 +111,7 @@ export function ResourcesShowcase() {
         {CORE_ASSETS.map((asset) => {
           const activeVariant = variants[asset.id] || "normal";
           const currentFilename = asset.files[activeVariant];
-          const path = `/${currentFilename}`;
+          const path = getAssetPath(`/${currentFilename}`);
           const isCopied = copiedId === asset.id;
 
           return (

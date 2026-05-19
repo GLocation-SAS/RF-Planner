@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Nunito } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
+import { cn, getAssetPath } from "@/lib/utils";
 
 const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' });
 const nunito = Nunito({ subsets: ['latin'], variable: '--font-nunito' });
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={cn(montserrat.variable, nunito.variable, "font-sans")} suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/Favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href={getAssetPath("/Favicon.svg")} type="image/svg+xml" />
         <script
           id="theme-script"
           dangerouslySetInnerHTML={{

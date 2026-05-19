@@ -16,6 +16,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { applyTheme, getStoredTheme, type Theme } from "@/lib/theme";
+import { getAssetPath } from "@/lib/utils";
 import {
   MousePointerClick,
   TextCursorInput,
@@ -147,24 +148,24 @@ export function UIKitSidebar({ activeSection, onNavigate }: UIKitSidebarProps) {
           <div className="flex items-center shrink-0">
             {/* Expanded Logos */}
             <img
-              src="/Logotipo%20horizontal.svg"
+              src={getAssetPath("/Logotipo%20horizontal.svg")}
               alt="RF Planner Logo"
               className="h-[32px] w-auto dark:hidden group-data-[state=collapsed]:hidden animate-in fade-in duration-300"
             />
             <img
-              src="/Logotio%20horizontal%20%20alternativo.svg"
+              src={getAssetPath("/Logotio%20horizontal%20%20alternativo.svg")}
               alt="RF Planner Logo"
               className="h-[32px] w-auto hidden dark:group-data-[state=expanded]:block group-data-[state=collapsed]:hidden animate-in fade-in duration-300"
             />
 
             {/* Collapsed Icons */}
             <img
-              src="/Icon.svg"
+              src={getAssetPath("/Icon.svg")}
               alt="RF Planner Icon"
               className="h-[27px] w-auto dark:hidden group-data-[state=expanded]:hidden animate-in zoom-in-75 duration-300"
             />
             <img
-              src="/Icon%20icon%20alternativo.svg"
+              src={getAssetPath("/Icon%20icon%20alternativo.svg")}
               alt="RF Planner Icon"
               className="h-[27px] w-auto hidden dark:group-data-[state=collapsed]:block group-data-[state=expanded]:hidden animate-in zoom-in-75 duration-300"
             />
