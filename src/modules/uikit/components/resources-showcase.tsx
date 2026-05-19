@@ -215,6 +215,7 @@ export function ResourcesShowcase() {
                     <a
                       href={path}
                       download={currentFilename}
+                      className="flex items-center gap-1.5 text-white hover:text-white dark:text-white dark:hover:text-white"
                     >
                       <Download className="size-3.5" />
                       <span>SVG</span>
