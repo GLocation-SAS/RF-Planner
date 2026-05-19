@@ -1,0 +1,9 @@
+service: dev
+runtime: nodejs24
+env_variables:
+  ENVIRONMENT: "dev"
+  GOOGLE_NODE_RUN_SCRIPTS: ""
+  PORT: "8080"
+  HOSTNAME: "0.0.0.0"
+  NODE_ENV: "production"
+entrypoint: node server.js
