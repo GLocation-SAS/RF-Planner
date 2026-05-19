@@ -171,84 +171,84 @@
 
 :root {
   /* PRIMITIVE TOKENS - LIGHT */
-  --primitive-primary-50: #f6f2ff;
-  --primitive-primary-100: #eee5ff;
-  --primitive-primary-200: #dccbff;
-  --primitive-primary-300: #c2a3ff;
-  --primitive-primary-400: #9b6dff;
-  --primitive-primary-500: #5a3988;
-  --primitive-primary-600: #4d2ef5;
-  --primitive-primary-700: #4025cc;
-  --primitive-primary-800: #321d9e;
-  --primitive-primary-900: #24156f;
+  --primitive-primary-50: #eef4ff;
+  --primitive-primary-100: #d9e7ff;
+  --primitive-primary-200: #b8d2ff;
+  --primitive-primary-300: #8bb7ff;
+  --primitive-primary-400: #5f98ff;
+  --primitive-primary-500: #3f7bff;
+  --primitive-primary-600: #2f63e6;
+  --primitive-primary-700: #234cc2;
+  --primitive-primary-800: #1b3b99;
+  --primitive-primary-900: #162f78;
 
-  --primitive-secondary-50: #dbeaf2;
-  --primitive-secondary-100: #b8d4e5;
-  --primitive-secondary-200: #94bfd8;
-  --primitive-secondary-300: #70aacb;
-  --primitive-secondary-400: #4c94be;
-  --primitive-secondary-500: #2d5f7c;
-  --primitive-secondary-600: #295671;
-  --primitive-secondary-700: #254e65;
-  --primitive-secondary-800: #21455a;
-  --primitive-secondary-900: #0c3b52;
+  --primitive-secondary-50: #f5f0ff;
+  --primitive-secondary-100: #e8dbff;
+  --primitive-secondary-200: #d4b8ff;
+  --primitive-secondary-300: #bc8cff;
+  --primitive-secondary-400: #a05cff;
+  --primitive-secondary-500: #8540ff;
+  --primitive-secondary-600: #6e2fe6;
+  --primitive-secondary-700: #5623bf;
+  --primitive-secondary-800: #421b94;
+  --primitive-secondary-900: #331570;
 
-  --primitive-success-50: #f0fdf4;
-  --primitive-success-100: #dcfce7;
-  --primitive-success-200: #bbf7d0;
-  --primitive-success-300: #86efac;
-  --primitive-success-400: #4ade80;
-  --primitive-success-500: #67DC67;
-  --primitive-success-600: #51b051;
-  --primitive-success-700: #3c863c;
-  --primitive-success-800: #295c29;
-  --primitive-success-900: #183718;
-
-
-  --primitive-warning-50: #fff9f1;
-  --primitive-warning-100: #ffefdb;
-  --primitive-warning-200: #ffdab3;
-  --primitive-warning-300: #ffbe7d;
-  --primitive-warning-400: #ff9f47;
-  --primitive-warning-500: #de7411;
-  --primitive-warning-600: #c2610a;
-  --primitive-warning-700: #a14e07;
-  --primitive-warning-800: #823d05;
-  --primitive-warning-900: #662f04;
-
-  --primitive-danger-50: #fef2f2;
-  --primitive-danger-100: #fee2e2;
-  --primitive-danger-200: #fecaca;
-  --primitive-danger-300: #fca5a5;
-  --primitive-danger-400: #f87171;
-  --primitive-danger-500: #E43241;
-  --primitive-danger-600: #dc2626;
-  --primitive-danger-700: #b91c1c;
-  --primitive-danger-800: #991b1b;
-  --primitive-danger-900: #7f1d1d;
-
-  --primitive-info-50: #f0f9ff;
-  --primitive-info-100: #e0f2fe;
-  --primitive-info-200: #bae6fd;
-  --primitive-info-300: #7dd3fc;
-  --primitive-info-400: #38bdf8;
-  --primitive-info-500: #38BDF8;
-  --primitive-info-600: #0284c7;
-  --primitive-info-700: #0369a1;
-  --primitive-info-800: #075985;
-  --primitive-info-900: #0c4a6e;
+  --primitive-success-50: #ecfffb;
+  --primitive-success-100: #cffcf3;
+  --primitive-success-200: #9ef8e5;
+  --primitive-success-300: #67f0d2;
+  --primitive-success-400: #31e2bc;
+  --primitive-success-500: #14c8a2;
+  --primitive-success-600: #0fa382;
+  --primitive-success-700: #0d8168;
+  --primitive-success-800: #106553;
+  --primitive-success-900: #114f43;
 
 
-  --primitive-neutral-50: #ffffff;
-  --primitive-neutral-100: #e8ebec;
-  --primitive-neutral-200: #d1d9da;
-  --primitive-neutral-300: #b9c6c8;
-  --primitive-neutral-400: #a1b3b5;
-  --primitive-neutral-500: #728588;
-  --primitive-neutral-600: #5b6a6d;
-  --primitive-neutral-700: #444f51;
-  --primitive-neutral-800: #2d3536;
-  --primitive-neutral-900: #171a1b;
+  --primitive-warning-50: #fff8eb;
+  --primitive-warning-100: #ffedc7;
+  --primitive-warning-200: #ffd98a;
+  --primitive-warning-300: #ffc24d;
+  --primitive-warning-400: #ffab1f;
+  --primitive-warning-500: #ff9500;
+  --primitive-warning-600: #e67800;
+  --primitive-warning-700: #bf5f00;
+  --primitive-warning-800: #994b00;
+  --primitive-warning-900: #733800;
+
+  --primitive-danger-50: #fff1f4;
+  --primitive-danger-100: #ffe0e7;
+  --primitive-danger-200: #ffc2cf;
+  --primitive-danger-300: #ff97af;
+  --primitive-danger-400: #ff6489;
+  --primitive-danger-500: #ff3e6c;
+  --primitive-danger-600: #e62e59;
+  --primitive-danger-700: #bf2349;
+  --primitive-danger-800: #991d3c;
+  --primitive-danger-900: #73162e;
+
+  --primitive-info-50: #f4f3ff;
+  --primitive-info-100: #e6e4ff;
+  --primitive-info-200: #cbc8ff;
+  --primitive-info-300: #a8a1ff;
+  --primitive-info-400: #8376ff;
+  --primitive-info-500: #6857ff;
+  --primitive-info-600: #5744e6;
+  --primitive-info-700: #4636bf;
+  --primitive-info-800: #372b99;
+  --primitive-info-900: #2b2278;
+
+
+  --primitive-neutral-50: #f8fafc;
+  --primitive-neutral-100: #f1f5f9;
+  --primitive-neutral-200: #e2e8f0;
+  --primitive-neutral-300: #cbd5e1;
+  --primitive-neutral-400: #94a3b8;
+  --primitive-neutral-500: #64748b;
+  --primitive-neutral-600: #475569;
+  --primitive-neutral-700: #334155;
+  --primitive-neutral-800: #1e293b;
+  --primitive-neutral-900: #0f172a;
 
 
   /* SEMANTIC TOKENS - LIGHT MODE */
@@ -299,7 +299,7 @@
   --sidebar-foreground: var(--primitive-neutral-800);
   --sidebar-primary: var(--primitive-primary-600);
   --sidebar-primary-foreground: var(--primitive-neutral-50);
-  --sidebar-accent: rgba(77, 46, 245, 0.08);
+  --sidebar-accent: rgba(47, 99, 230, 0.08);
   --sidebar-accent-foreground: var(--primitive-primary-600);
   --sidebar-border: rgba(0, 0, 0, 0.08);
   --sidebar-ring: var(--primitive-primary-500);

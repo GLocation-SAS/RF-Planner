@@ -40,6 +40,7 @@ import {
   ChevronRight,
   Sun,
   Moon,
+  Image,
 } from "lucide-react";
 
 /** Section definition for UIKit navigation */
@@ -53,7 +54,8 @@ export interface UIKitSection {
 /** All UIKit sections organized by category */
 export const UIKIT_SECTIONS: UIKitSection[] = [
   // Brand & Tokens
-  { id: "colors", label: "Colors", icon: Palette, group: "brand" },
+  { id: "colors", label: "Colores & Estilos", icon: Palette, group: "brand" },
+  { id: "resources", label: "Recursos de Marca", icon: Image, group: "brand" },
 
   // Actions
   { id: "buttons", label: "Buttons", icon: MousePointerClick, group: "actions" },
@@ -82,6 +84,7 @@ export const UIKIT_SECTIONS: UIKitSection[] = [
   { id: "toast", label: "Toast", icon: Bell, group: "overlay" },
   { id: "tooltip", label: "Tooltip", icon: MessageSquare, group: "overlay" },
   { id: "chat-assistant", label: "Chat Assistant", icon: MessageSquare, group: "overlay" },
+  { id: "map-controls", label: "Map Controls", icon: Layers, group: "overlay" },
   { id: "folders", label: "Folders", icon: FolderIcon, group: "data" },
   { id: "cards", label: "Cards", icon: Layout, group: "data" },
 ];
@@ -144,25 +147,25 @@ export function UIKitSidebar({ activeSection, onNavigate }: UIKitSidebarProps) {
           <div className="flex items-center shrink-0">
             {/* Expanded Logos */}
             <img
-              src="/Logotipo.svg"
-              alt="GLocation Logo"
-              className="h-[35px] w-auto dark:hidden group-data-[state=collapsed]:hidden animate-in fade-in duration-300"
+              src="/Logotipo%20horizontal.svg"
+              alt="RF Planner Logo"
+              className="h-[32px] w-auto dark:hidden group-data-[state=collapsed]:hidden animate-in fade-in duration-300"
             />
             <img
-              src="/LogotipoVersionNegativo.svg"
-              alt="GLocation Logo"
-              className="h-[35px] w-auto hidden dark:group-data-[state=expanded]:block group-data-[state=collapsed]:hidden animate-in fade-in duration-300"
+              src="/Logotio%20horizontal%20%20alternativo.svg"
+              alt="RF Planner Logo"
+              className="h-[32px] w-auto hidden dark:group-data-[state=expanded]:block group-data-[state=collapsed]:hidden animate-in fade-in duration-300"
             />
 
             {/* Collapsed Icons */}
             <img
-              src="/icon.svg"
-              alt="GLocation Icon"
+              src="/Icon.svg"
+              alt="RF Planner Icon"
               className="h-[27px] w-auto dark:hidden group-data-[state=expanded]:hidden animate-in zoom-in-75 duration-300"
             />
             <img
-              src="/iconBlanco.svg"
-              alt="GLocation Icon"
+              src="/Icon%20icon%20alternativo.svg"
+              alt="RF Planner Icon"
               className="h-[27px] w-auto hidden dark:group-data-[state=collapsed]:block group-data-[state=expanded]:hidden animate-in zoom-in-75 duration-300"
             />
           </div>
@@ -276,7 +279,7 @@ export function UIKitSidebar({ activeSection, onNavigate }: UIKitSidebarProps) {
           {/* Avatar */}
           <div className="relative shrink-0">
             <div className="size-9 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-heading font-bold text-caption group-data-[collapsible=icon]:size-8 transition-all duration-200">
-              JM
+              PR
             </div>
             {/* Online indicator */}
             <div className="absolute bottom-0 right-0 size-2.5 rounded-full bg-success border-2 border-background group-data-[collapsible=icon]:size-2" />
@@ -286,10 +289,10 @@ export function UIKitSidebar({ activeSection, onNavigate }: UIKitSidebarProps) {
           <div className="flex flex-1 items-center justify-between gap-2 min-w-0 group-data-[collapsible=icon]:hidden animate-in fade-in slide-in-from-bottom-1 duration-300">
             <div className="flex flex-col min-w-0">
               <span className="text-body-sm font-heading font-semibold text-sidebar-foreground truncate">
-                Jeimy Mateus
+                Paula Rozo
               </span>
               <span className="text-caption text-sidebar-foreground/60 truncate">
-                jeimy@glocation.co
+                paularozo@location.com.co
               </span>
             </div>
             <button

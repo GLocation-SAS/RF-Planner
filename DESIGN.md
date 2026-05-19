@@ -1,22 +1,22 @@
-# GLocation — Design System Reference
+# RF Planner — Design System Reference
 > Enterprise-grade location intelligence and logistics management interface
 
 **Theme:** multi-theme (light/dark supported via `data-theme`)
 
-GLocation operates with a professional, enterprise-focused aesthetic, balancing high-density data visualization with clean, modern UI principles. The system uses a robust semantic token architecture that ensures accessibility and visual consistency across complex workflows. Typography is optimized for readability, using Montserrat for strong, commanding titles and Nunito Sans for clear, legible body text. The overall design language communicates reliability, precision, and efficiency, essential for logistics and location-based decision-making.
+RF Planner operates with a professional, enterprise-focused aesthetic, balancing high-density data visualization with clean, modern UI principles. The system uses a robust semantic token architecture that ensures accessibility and visual consistency across complex workflows. Typography is optimized for readability, using Montserrat for strong, commanding titles and Nunito Sans for clear, legible body text. The overall design language communicates reliability, precision, and efficiency, essential for logistics and location-based decision-making.
 
 ## Tokens — Colors
 
 ### Primitive Palette (Foundational)
 | Group | Base Hex | Token Range | Purpose |
 |-------|----------|-------------|---------|
-| **Primary** | `#5a3988` | `--primitive-primary-50-950` | Brand identity, main actions, and emphasis |
-| **Secondary** | `#2d5f7c` | `--primitive-secondary-50-950` | Complementary actions and UI depth |
-| **Success** | `#67DC67` | `--primitive-success-50-900` | Positive actions, completion, and health status |
-| **Warning** | `#FCCF2E` | `--primitive-warning-50-900` | Cautions, pending states, and alerts |
-| **Danger** | `#E43241` | `--primitive-danger-50-900` | Error states, destructive actions, and critical alerts |
-| **Info** | `#41B5F1` | `--primitive-info-50-950` | Neutral information and system updates |
-| **Neutral** | `#728588` | `--primitive-neutral-50-950` | Backgrounds, surfaces, borders, and typography |
+| **Primary** | `#3f7bff` | `--primitive-primary-50-950` | Brand identity, main actions, and emphasis |
+| **Secondary** | `#8540ff` | `--primitive-secondary-50-950` | Complementary actions and UI depth |
+| **Success** | `#14c8a2` | `--primitive-success-50-900` | Positive actions, completion, and health status |
+| **Warning** | `#ff9500` | `--primitive-warning-50-900` | Cautions, pending states, and alerts |
+| **Danger** | `#ff3e6c` | `--primitive-danger-50-900` | Error states, destructive actions, and critical alerts |
+| **Info** | `#6857ff` | `--primitive-info-50-950` | Neutral information and system updates |
+| **Neutral** | `#64748b` | `--primitive-neutral-50-950` | Backgrounds, surfaces, borders, and typography |
 
 ### Semantic Tokens (Functional)
 | Name | Light Value | Dark Value | Role |
@@ -166,7 +166,7 @@ Hierarchy is communicated through a combination of:
 
 ## Imagery
 
-GLocation uses a mix of:
+RF Planner uses a mix of:
 - **Photography:** High-quality, professional imagery related to logistics, maps, and technology. Always use subtle overlays to ensure text readability.
 - **Icons:** Lucide-react outlined icons. Stroke width: 2px. Consistent sizing (16px/20px/24px).
 - **Maps:** Clean, minimal map styles that match the application's color palette (muted roads, primary-colored markers).
@@ -183,8 +183,8 @@ The application follows a structured grid system:
 ## Agent Prompt Guide
 
 ### Quick Color Reference:
-- **Brand Primary:** `#5a3988`
-- **Brand Secondary:** `#2d5f7c`
+- **Brand Primary:** `#3f7bff`
+- **Brand Secondary:** `#8540ff`
 - **Text:** `--foreground`
 - **Background:** `--background`
 - **Border:** `--border`
@@ -200,8 +200,8 @@ The application follows a structured grid system:
 ```css
 :root {
   /* Primitive Tokens (Sample) */
-  --primitive-primary-500: #5a3988;
-  --primitive-secondary-500: #2d5f7c;
+  --primitive-primary-500: #3f7bff;
+  --primitive-secondary-500: #8540ff;
 
   /* Semantic Tokens */
   --primary: var(--primitive-primary-600);

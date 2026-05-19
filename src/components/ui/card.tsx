@@ -10,7 +10,7 @@ type CardVariant = "default" | "featured"
  * `featured` — Colorful horizontal card with a decorative icon in the corner.
  * Inspired by the course/category card pattern (pastel bg + badge + large icon).
  *
- * `default` — Standard glassmorphism card (existing behavior).
+ * `default` — Standard glassmorphism card with inner glow blobs.
  */
 type CardGlow = "none" | "primary-info" | "success-warning" | "danger-secondary"
 
@@ -26,13 +26,6 @@ interface CardProps extends React.ComponentProps<"div"> {
 function Card({ className, innerClassName, size = "default", variant = "default", glow = "none", children, ...props }: CardProps) {
   const isDefault = variant === "default"
 
-  const glowColors = {
-    "primary-info": "var(--color-primary-600), var(--color-info-500)",
-    "success-warning": "var(--color-success), var(--color-warning)",
-    "danger-secondary": "var(--color-danger), var(--color-secondary)",
-    "none": "transparent, transparent"
-  }
-
   return (
     <div
       data-slot="card"
@@ -40,30 +33,36 @@ function Card({ className, innerClassName, size = "default", variant = "default"
       data-variant={variant}
       data-glow={glow}
       className={cn(
-        "group/card relative flex flex-col overflow-hidden rounded-2xl transition-all duration-300",
-        // --- Default variant (Neon border + Dark surface) ---
+        "group/card relative flex flex-col overflow-hidden transition-all duration-300",
+        // --- Default variant (Glassmorphic) ---
         isDefault && [
-          "border shadow-[0_0_12px_rgba(0,0,0,0.05)] dark:shadow-[0_0_15px_rgba(0,0,0,0.3)] transition-all duration-500",
-          "hover:bg-surface/30",
-          glow !== "none" && [
-            "p-[1px] border-0",
-            "hover:animate-[border-spin_4s_linear_infinite]"
-          ]
+          "rounded-[32px] border-[1.5px] border-border/50 bg-surface/40 dark:bg-surface/20 backdrop-blur-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)]",
+          "hover:shadow-2xl hover:-translate-y-1"
         ],
         // --- Featured variant (colorful + decorative icon) ---
         variant === "featured" && [
-          "shadow-lg hover:shadow-xl hover:-translate-y-0.5",
+          "rounded-[24px] shadow-lg hover:shadow-xl hover:-translate-y-0.5",
         ],
         className
       )}
-      style={glow !== "none" ? {
-        backgroundImage: `conic-gradient(from var(--border-angle), transparent 20%, ${glowColors[glow]}, transparent 80%)`,
-      } as React.CSSProperties : undefined}
       {...props}
     >
-      {/* ═══ INNER SURFACE (for gradient border effect) ═══ */}
+      {/* ═══ INNER BLOBS (for glassmorphic effect) ═══ */}
       {isDefault && glow !== "none" && (
-        <div className="absolute inset-[1px] rounded-[inherit] bg-background/95 backdrop-blur-xl z-0" />
+        <>
+          <div className={cn(
+            "absolute -top-12 -left-12 w-[140px] h-[140px] rounded-[100%] blur-[50px] opacity-30 z-0 mix-blend-multiply dark:mix-blend-screen transition-all duration-500 group-hover/card:scale-110",
+            glow === "primary-info" && "bg-info-300 dark:bg-info-700",
+            glow === "success-warning" && "bg-success-300 dark:bg-success-700",
+            glow === "danger-secondary" && "bg-danger-300 dark:bg-danger-700"
+          )} />
+          <div className={cn(
+            "absolute -bottom-10 -right-10 w-[160px] h-[160px] rounded-[100%] blur-[50px] opacity-20 z-0 mix-blend-multiply dark:mix-blend-screen transition-all duration-500 group-hover/card:scale-110",
+            glow === "primary-info" && "bg-primary-300 dark:bg-primary-700",
+            glow === "success-warning" && "bg-warning-300 dark:bg-warning-700",
+            glow === "danger-secondary" && "bg-secondary-300 dark:bg-secondary-700"
+          )} />
+        </>
       )}
 
       {/* Content above blobs */}
@@ -71,8 +70,8 @@ function Card({ className, innerClassName, size = "default", variant = "default"
         "relative z-10 flex flex-col w-full h-full",
         // --- Default Layout ---
         isDefault && [
-          "items-center text-center gap-4 py-10 px-8",
-          "group-data-[size=sm]/card:gap-3 group-data-[size=sm]/card:py-6 group-data-[size=sm]/card:px-4"
+          "items-start text-left gap-4 p-8",
+          "group-data-[size=sm]/card:gap-3 group-data-[size=sm]/card:p-6"
         ],
         // --- Featured Layout ---
         variant === "featured" && [
@@ -93,9 +92,7 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-header"
       className={cn(
-        "flex flex-col items-center gap-4 w-full",
-        // When inside featured card, align left
-        "group-data-[variant=featured]/card:items-start group-data-[variant=featured]/card:gap-2",
+        "flex flex-col gap-2 w-full",
         className
       )}
       {...props}
@@ -136,17 +133,16 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-// ─── CardIcon (centered icon for default variant) ─────────────────────────────
+// ─── CardIcon ─────────────────────────────────────────────────────────────────
 
 function CardIcon({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-icon"
       className={cn(
-        "flex items-center justify-center size-16 rounded-full mb-2",
-        "bg-white/5 border border-white/10 backdrop-blur-sm",
-        "shadow-inner drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]",
-        "[&_svg]:size-8 [&_svg]:text-foreground/90",
+        "flex items-center justify-center size-12 rounded-xl mb-2",
+        "bg-surface border border-border/50 shadow-sm",
+        "[&_svg]:size-6 [&_svg]:text-foreground",
         className
       )}
       {...props}
@@ -156,28 +152,11 @@ function CardIcon({ className, ...props }: React.ComponentProps<"div">) {
 
 // ─── CardDecorativeIcon (bottom-right decorative icon for featured variant) ───
 
-/**
- * Renders a large decorative icon anchored to the bottom-right of a `featured` Card.
- * Pass any SVG or Lucide icon as children. Opacity and size are controlled via className.
- *
- * Usage:
- * ```tsx
- * <Card variant="featured" className="bg-primary/10">
- *   <CardBadge>Design</CardBadge>
- *   <CardTitle>Product Design</CardTitle>
- *   <CardDescription>320 lessons</CardDescription>
- *   <CardDecorativeIcon><PenTool className="w-16 h-16" /></CardDecorativeIcon>
- * </Card>
- * ```
- */
 function CardDecorativeIcon({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-decorative-icon"
       className={cn(
-        // Positioned absolute at bottom-right, clipped by card overflow-hidden
-        // Negative margins/offsets to make it look like it's "coming out"
-        // Lower z-index to stay behind other content in the same container
         "absolute -bottom-10 -right-10 -z-10 pointer-events-none select-none transition-transform duration-500 group-hover/card:scale-110",
         "opacity-15",
         className
@@ -193,7 +172,7 @@ function CardContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-content"
-      className={cn("w-full", className)}
+      className={cn("w-full mt-2", className)}
       {...props}
     />
   )
@@ -206,8 +185,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-footer"
       className={cn(
-        "flex items-center justify-center pt-2",
-        "group-data-[variant=featured]/card:justify-start group-data-[variant=featured]/card:pt-1",
+        "flex items-center pt-6 mt-auto",
         className
       )}
       {...props}
@@ -222,8 +200,8 @@ function CardBadge({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-badge"
       className={cn(
-        "inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold",
-        "bg-background/40 text-foreground backdrop-blur-sm",
+        "inline-flex items-center rounded-full px-3 py-1 text-xs font-bold",
+        "bg-white/60 text-slate-800 backdrop-blur-md shadow-sm border border-white/70",
         className
       )}
       {...props}

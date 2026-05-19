@@ -9,15 +9,15 @@ import { XIcon } from "lucide-react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 const dialogVariants = cva(
-  "fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-6 rounded-3xl border bg-background/90 backdrop-blur-xl p-8 duration-200 outline-none data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+  "fixed top-1/2 left-1/2 z-50 flex flex-col w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-6 rounded-3xl border border-slate-100 dark:border-slate-800/80 bg-white dark:bg-slate-900 p-8 pt-10 duration-200 outline-none shadow-[0_20px_60px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] backdrop-blur-sm data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
   {
     variants: {
       variant: {
-        default: "border-border border-primary shadow-2xl shadow-primary/25",
-        success: "border-success/30 shadow-2xl shadow-success/10",
-        danger: "border-danger/30 shadow-2xl shadow-danger/10",
-        warning: "border-warning/30 shadow-2xl shadow-warning/10",
-        info: "border-info/30 shadow-2xl shadow-info/10",
+        default: "",
+        success: "",
+        danger: "",
+        warning: "",
+        info: "",
       },
       size: {
         sm: "sm:max-w-sm",
@@ -65,7 +65,7 @@ function DialogOverlay({
     <DialogPrimitive.Overlay
       data-slot="dialog-overlay"
       className={cn(
-        "fixed inset-0 isolate z-50 bg-black/40 duration-100 supports-backdrop-filter:backdrop-blur-xs data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
+        "fixed inset-0 isolate z-50 bg-slate-950/20 dark:bg-slate-950/60 backdrop-blur-sm duration-100 data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
         className
       )}
       {...props}
@@ -78,7 +78,7 @@ function DialogContent({
   children,
   variant,
   size,
-  showCloseButton = true,
+  showCloseButton = false,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Content> &
   VariantProps<typeof dialogVariants> & {
@@ -89,52 +89,25 @@ function DialogContent({
       <DialogOverlay />
       <DialogPrimitive.Content
         data-slot="dialog-content"
-        className={cn(dialogVariants({ variant, size }), "overflow-hidden", className)}
+        className={cn(dialogVariants({ variant, size }), className)}
         {...props}
       >
-        {/* ═══ AMBIENT GLOWS — Top-Left ═══ */}
-        {/* Halo exterior — color primario del variant */}
-        <div className={cn(
-          "absolute -top-40 -left-40 size-80 rounded-full blur-[100px] opacity-[0.18] pointer-events-none transition-all duration-700",
-          variant === "success" && "bg-success-400",
-          variant === "danger" && "bg-danger-400",
-          variant === "warning" && "bg-warning-400",
-          variant === "info" && "bg-info-400",
-          (variant === "default" || !variant) && "bg-primary-400"
-        )} />
-        {/* Orb medio — tono complementario */}
-        <div className={cn(
-          "absolute -top-16 -left-16 size-40 rounded-full blur-[60px] opacity-[0.22] pointer-events-none transition-all duration-700",
-          variant === "success" && "bg-success-500",
-          variant === "danger" && "bg-danger-500",
-          variant === "warning" && "bg-warning-500",
-          variant === "info" && "bg-info-500",
-          (variant === "default" || !variant) && "bg-secondary-400"
-        )} />
+        {/* Top Gradient Blur (Matcha style) */}
+        <div className="absolute top-0 left-0 right-0 h-40 overflow-hidden rounded-t-3xl z-0 pointer-events-none">
+            <div className={cn(
+                "absolute -top-16 left-1/2 -translate-x-1/2 w-[80%] h-32 rounded-full blur-[40px] opacity-70",
+                variant === "success" && "bg-gradient-to-r from-success-300 to-success-100 dark:from-success-500/20 dark:to-success-700/5",
+                variant === "danger" && "bg-gradient-to-r from-danger-300 to-pink-200 dark:from-danger-500/20 dark:to-pink-700/5",
+                variant === "warning" && "bg-gradient-to-r from-warning-300 to-warning-100 dark:from-warning-500/20 dark:to-warning-700/5",
+                variant === "info" && "bg-gradient-to-r from-info-300 to-purple-200 dark:from-info-500/20 dark:to-purple-700/5",
+                (variant === "default" || !variant) && "bg-gradient-to-r from-slate-200 to-slate-100 dark:from-slate-700/20 dark:to-slate-800/5"
+            )} />
+        </div>
 
-        {/* ═══ AMBIENT GLOWS — Bottom-Right ═══ */}
-        {/* Halo exterior — color complementario */}
-        <div className={cn(
-          "absolute -bottom-40 -right-40 size-80 rounded-full blur-[100px] opacity-[0.18] pointer-events-none transition-all duration-700",
-          variant === "success" && "bg-success-500",
-          variant === "danger" && "bg-danger-500",
-          variant === "warning" && "bg-warning-400",
-          variant === "info" && "bg-info-500",
-          (variant === "default" || !variant) && "bg-secondary-400"
-        )} />
-        {/* Orb medio */}
-        <div className={cn(
-          "absolute -bottom-16 -right-16 size-40 rounded-full blur-[60px] opacity-[0.22] pointer-events-none transition-all duration-700",
-          variant === "success" && "bg-success-400",
-          variant === "danger" && "bg-danger-400",
-          variant === "warning" && "bg-warning-500",
-          variant === "info" && "bg-info-400",
-          (variant === "default" || !variant) && "bg-primary-500"
-        )} />
-
-        <div className="relative z-10 grid gap-6">
+        <div className="relative z-10 flex flex-col gap-6 w-full">
           {children}
         </div>
+
         {showCloseButton && (
           <DialogPrimitive.Close
             data-slot="dialog-close"
@@ -143,7 +116,7 @@ function DialogContent({
           >
             <Button
               variant="ghost"
-              className="rounded-full size-8 p-0 opacity-50 hover:opacity-100 hover:bg-muted/50 transition-all"
+              className="rounded-full size-8 p-0 opacity-50 hover:opacity-100 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-slate-100 transition-all"
               size="icon"
             >
               <XIcon className="size-4" />
@@ -160,7 +133,7 @@ function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="dialog-header"
-      className={cn("flex flex-col gap-5 text-center", className)}
+      className={cn("flex flex-col items-center gap-3 text-center w-full", className)}
       {...props}
     />
   )
@@ -178,14 +151,14 @@ function DialogFooter({
     <div
       data-slot="dialog-footer"
       className={cn(
-        "flex flex-col sm:flex-row sm:justify-center gap-3",
+        "flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-3 w-full mt-2",
         className
       )}
       {...props}
     >
       {showCloseButton && (
         <DialogPrimitive.Close asChild>
-          <Button variant="neutral" className="sm:order-first">Cerrar</Button>
+          <Button variant="neutral" className="sm:flex-1 sm:max-w-none whitespace-nowrap">Atrás</Button>
         </DialogPrimitive.Close>
       )}
       {children}
@@ -201,7 +174,7 @@ function DialogTitle({
     <DialogPrimitive.Title
       data-slot="dialog-title"
       className={cn(
-        "text-2xl font-heading font-bold tracking-tight text-foreground",
+        "text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50",
         className
       )}
       {...props}
@@ -217,7 +190,7 @@ function DialogDescription({
     <DialogPrimitive.Description
       data-slot="dialog-description"
       className={cn(
-        "text-base text-foreground leading-relaxed text-balance",
+        "text-sm text-slate-500 dark:text-slate-400 leading-relaxed text-balance",
         className
       )}
       {...props}

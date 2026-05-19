@@ -17,6 +17,7 @@ import {
   ArrowDown,
   ArrowLeft,
   ArrowRight,
+  CircleHelp,
 } from "lucide-react"
 
 const semanticVariants = [
@@ -257,6 +258,26 @@ export function TooltipShowcase() {
                   No tienes permisos para esta acción.
                 </TooltipContent>
               </Tooltip>
+            </div>
+
+            {/* Operational Example */}
+            <div className="space-y-2">
+              <span className="text-[10px] text-muted-foreground block font-medium">
+                Ejemplo Operativo (RF Planner)
+              </span>
+              <div className="flex items-center gap-1.5">
+                <span className="text-sm font-semibold text-foreground tracking-wide">
+                  TX (DBM)
+                </span>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <CircleHelp className="size-4 text-muted-foreground cursor-help hover:text-info transition-colors focus:outline-none" />
+                  </TooltipTrigger>
+                  <TooltipContent variant="info" side="top" sideOffset={8} className="max-w-[280px] text-center font-medium leading-relaxed">
+                    Potencia radiada de salida. (Ej: 43 dBm = 20 Watts, 46 dBm = 40 Watts).
+                  </TooltipContent>
+                </Tooltip>
+              </div>
             </div>
           </div>
         </div>

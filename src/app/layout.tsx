@@ -7,8 +7,11 @@ const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat
 const nunito = Nunito({ subsets: ['latin'], variable: '--font-nunito' });
 
 export const metadata: Metadata = {
-  title: "GLocation",
-  description: "Página web de GLocation",
+  title: "RF Planner",
+  description: "Página web de RF Planner",
+  icons: {
+    icon: "/Favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -19,13 +22,14 @@ export default function RootLayout({
   return (
     <html lang="es" className={cn(montserrat.variable, nunito.variable, "font-sans")} suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/Favicon.svg" type="image/svg+xml" />
         <script
           id="theme-script"
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 try {
-                  const theme = localStorage.getItem('glocation-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                  const theme = localStorage.getItem('rf-planner-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
                   document.documentElement.setAttribute('data-theme', theme);
                 } catch (e) {}
               })();

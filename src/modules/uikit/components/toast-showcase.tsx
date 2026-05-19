@@ -44,7 +44,7 @@ export function ToastShowcase() {
   })
 
   const showPromise = () => {
-    const promise = new Promise((resolve) => setTimeout(() => resolve({ name: "GLocation" }), 2000))
+    const promise = new Promise((resolve) => setTimeout(() => resolve({ name: "RF Planner" }), 2000))
 
     toast.promise(promise, {
       loading: 'Sincronizando datos...',

@@ -60,12 +60,12 @@ export function CardShowcase() {
                     </div>
                 </div>
 
-                {/* BORDES NEON GRADIENT */}
+                {/* GLASSMORPHIC INNER GLOW */}
                 <div className="space-y-4">
                     <h3 className="text-xs font-bold uppercase text-muted-foreground tracking-widest">
-                        Efectos de Borde Neon (Gradient)
+                        Glassmorphic Inner Glow
                     </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-8 bg-muted/20 border border-border/50 rounded-2xl">
                         {/* Primary-Info Combination */}
                         <Card glow="primary-info">
                             <CardHeader>

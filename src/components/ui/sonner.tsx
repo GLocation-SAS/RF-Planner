@@ -7,7 +7,7 @@ import {
   CircleCheckIcon,
   InfoIcon,
   TriangleAlertIcon,
-  OctagonXIcon,
+  CircleXIcon,
   Loader2Icon,
 } from "lucide-react"
 
@@ -21,75 +21,87 @@ const Toaster = ({ ...props }: ToasterProps) => {
       position="bottom-right"
       icons={{
         success: (
-          <CircleCheckIcon className="size-5 text-success" />
+          <div className="flex items-center justify-center size-10 rounded-full bg-success-50 border border-success-200 shrink-0">
+            <CircleCheckIcon className="size-5 text-success-600" />
+          </div>
         ),
         info: (
-          <InfoIcon className="size-5 text-info" />
+          <div className="flex items-center justify-center size-10 rounded-full bg-info-50 border border-info-200 shrink-0">
+            <InfoIcon className="size-5 text-info-600" />
+          </div>
         ),
         warning: (
-          <TriangleAlertIcon className="size-5 text-warning" />
+          <div className="flex items-center justify-center size-10 rounded-full bg-warning-50 border border-warning-200 shrink-0">
+            <TriangleAlertIcon className="size-5 text-warning-600" />
+          </div>
         ),
         error: (
-          <OctagonXIcon className="size-5 text-danger" />
+          <div className="flex items-center justify-center size-10 rounded-full bg-danger-50 border border-danger-200 shrink-0">
+            <CircleXIcon className="size-5 text-danger-600" />
+          </div>
         ),
         loading: (
-          <Loader2Icon className="size-5 animate-spin text-primary" />
+          <div className="flex items-center justify-center size-10 rounded-full bg-primary-50 border border-primary-200 shrink-0">
+            <Loader2Icon className="size-5 animate-spin text-primary-600" />
+          </div>
         ),
       }}
       style={
         {
           /* Default toast */
-          "--normal-bg": "color-mix(in srgb, var(--primary) 5%, var(--background))",
-          "--normal-border": "color-mix(in srgb, var(--primary) 40%, transparent)",
-          "--normal-text": "var(--foreground)",
+          "--normal-bg": "white",
+          "--normal-border": "var(--color-slate-200)",
+          "--normal-text": "var(--color-slate-900)",
 
           /* Success */
-          "--success-bg": "color-mix(in srgb, var(--success) 10%, var(--background))",
-          "--success-border": "color-mix(in srgb, var(--success) 40%, transparent)",
-          "--success-text": "var(--foreground)",
+          "--success-bg": "white",
+          "--success-border": "var(--color-slate-200)",
+          "--success-text": "var(--color-slate-900)",
 
           /* Info */
-          "--info-bg": "color-mix(in srgb, var(--info) 10%, var(--background))",
-          "--info-border": "color-mix(in srgb, var(--info) 40%, transparent)",
-          "--info-text": "var(--foreground)",
+          "--info-bg": "white",
+          "--info-border": "var(--color-slate-200)",
+          "--info-text": "var(--color-slate-900)",
 
           /* Warning */
-          "--warning-bg": "color-mix(in srgb, var(--warning) 10%, var(--background))",
-          "--warning-border": "color-mix(in srgb, var(--warning) 40%, transparent)",
-          "--warning-text": "var(--foreground)",
+          "--warning-bg": "white",
+          "--warning-border": "var(--color-slate-200)",
+          "--warning-text": "var(--color-slate-900)",
 
           /* Error */
-          "--error-bg": "color-mix(in srgb, var(--danger) 15%, var(--background))",
-          "--error-border": "color-mix(in srgb, var(--danger) 40%, transparent)",
-          "--error-text": "var(--foreground)",
+          "--error-bg": "white",
+          "--error-border": "var(--color-slate-200)",
+          "--error-text": "var(--color-slate-900)",
 
           "--border-radius": "1rem",
         } as React.CSSProperties
       }
-      richColors
       toastOptions={{
         classNames: {
           toast: `
             group toast
             rounded-2xl
-            backdrop-blur-xl
             text-foreground
-            shadow-[0_8px_30px_rgba(0,0,0,0.12)]
+            shadow-[0_4px_24px_rgba(0,0,0,0.06)]
             transition-all duration-300
-            !gap-4
-            !p-4
+            !gap-6
+            !p-4 !pl-5 !pr-10
             !items-center
+            !bg-white
+            !border !border-slate-200/80
+            relative overflow-hidden
           `,
 
           title: `
             text-sm
-            font-semibold
+            font-bold
             tracking-tight
+            text-slate-900
           `,
 
           description: `
             text-sm
-            !text-muted-foreground
+            !text-slate-500
           `,
 
           actionButton: `
@@ -113,11 +125,31 @@ const Toaster = ({ ...props }: ToasterProps) => {
           `,
 
           closeButton: `
-            hover:bg-muted/50
+            !text-slate-400
+            hover:!text-slate-600
+            hover:!bg-slate-100
+            !border-0
             transition-all
+          `,
+
+          success: `
+            !bg-gradient-to-r !from-success-50/80 !via-white !to-white
+          `,
+
+          info: `
+            !bg-gradient-to-r !from-info-50/80 !via-white !to-white
+          `,
+
+          warning: `
+            !bg-gradient-to-r !from-warning-50/80 !via-white !to-white
+          `,
+
+          error: `
+            !bg-gradient-to-r !from-danger-50/80 !via-white !to-white
           `,
         },
       }}
+      closeButton
       {...props}
     />
   )

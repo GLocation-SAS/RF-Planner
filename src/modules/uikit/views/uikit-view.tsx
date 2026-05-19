@@ -26,7 +26,9 @@ import { FolderShowcase } from "../components/folder-showcase";
 import { CardShowcase } from "../components/card-showcase";
 import { ToggleShowcase } from "../components/toggle-showcase";
 import { ChatAssistantShowcase } from "../components/chat-assistant-showcase";
+import { MapControlsShowcase } from "../components/map-controls-showcase";
 import { StyleGuide } from "../components/style-guide";
+import { ResourcesShowcase } from "../components/resources-showcase";
 
 /**
  * Maps section IDs to their showcase components.
@@ -34,6 +36,7 @@ import { StyleGuide } from "../components/style-guide";
  */
 const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   colors: StyleGuide,
+  resources: ResourcesShowcase,
   buttons: RadialButtonShowcase,
   inputs: InputGroupShowcase,
   textarea: TextareaShowcase,
@@ -55,6 +58,7 @@ const SECTION_COMPONENTS: Record<string, React.ComponentType> = {
   cards: CardShowcase,
   toggle: ToggleShowcase,
   "chat-assistant": ChatAssistantShowcase,
+  "map-controls": MapControlsShowcase,
   pagination: PaginationShowcase,
 };
 
@@ -131,7 +135,7 @@ export function UIKitView() {
               {/* Hero section */}
               <section className="text-center p-8 rounded-xl border border-border shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <h2 className="text-h1 font-heading font-bold text-primary mb-2">
-                  GLocation UI Kit
+                  RF Planner UI Kit
                 </h2>
                 <p className="text-muted-foreground">
                   Explora los componentes   del sistema de diseño.

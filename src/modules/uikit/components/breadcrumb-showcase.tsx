@@ -140,7 +140,7 @@ export function BreadcrumbShowcase() {
             Tipografía y Tracking
           </h4>
           <p className="text-xs text-muted-foreground leading-relaxed">
-            Se aplica <code className="text-foreground">font-heading</code> en mayúsculas con espaciado expandido para asegurar una estética profesional y técnica, coherente con el sistema GLocation.
+            Se aplica <code className="text-foreground">font-heading</code> en mayúsculas con espaciado expandido para asegurar una estética profesional y técnica, coherente con el sistema RF Planner.
           </p>
         </div>
       </div>
