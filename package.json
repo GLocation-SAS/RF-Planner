@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "deploy": "next build && echo.> out/.nojekyll && gh-pages -d out",
     "start": "node server.js",
     "lint": "eslint"
   },
@@ -37,6 +38,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
+    "gh-pages": "^6.3.0",
     "typescript": "^5"
   },
   "description": "Página web construida con [Next.js](https://nextjs.org).",
